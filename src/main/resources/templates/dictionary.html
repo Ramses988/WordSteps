@@ -3,8 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${dictionary.name}"></title>
+    <link rel="stylesheet" th:href="@{/resources/css/datatables.min.css}">
 </head>
 <body>
-
+<div>
+    <h1>Список слов</h1>
+    <div>
+        <table id="myTable" class="display">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Слово</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
 </body>
+<script th:src="@{/resources/js/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/resources/js/datatables.min.js}"></script>
+
+<script>
+
+    $(document).ready( function () {
+        $('#myTable').DataTable({
+            "paging": true,
+            columns: [
+                { data: 'id' },
+                { data: 'name' }
+            ],
+            ajax: {
+                url: '/dictionary/get-words',
+                type: 'GET',
+                dataSrc: ''
+            },
+        });
+    } );
+
+</script>
+
 </html>
