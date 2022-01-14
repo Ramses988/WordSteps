@@ -35,6 +35,11 @@
     border: 1px solid #b6cf9c !important;
 }
 
+#speak{
+    width: 30px;
+    height: 30px;
+}
+
 .select-word {
     width: 100%;
     padding: 10px;
@@ -55,6 +60,14 @@
 
 #error {
     color: red;
+}
+
+.sound {
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 5px;
+    width: 16px;
+    height: 16px;
 }
 
 #first-yellow {

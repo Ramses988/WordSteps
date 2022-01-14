@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Урок</title>
+    <link rel="stylesheet" th:href="@{/resources/css/style.css}">
+</head>
+<body>
+<section>
+    <div id="container">
+        <div id="first-yellow">
+            <p class="center">
+                <span class="sound">
+                <img id="speak" src="/resources/images/speak.png" /></span>
+                <input type="hidden" id="music" th:value="${word.sound}">
+            </p>
+            <input type="hidden" id="answer" th:value="${word.translate}">
+            <input type="hidden" id="id" th:value="${word.id}">
+        </div>
+        <div>
+            <div th:each="w : ${words}">
+                <p><button class="select-word" th:text="${w.translate}"></button></p>
+            </div>
+        </div>
+        <div id="button-block">
+            <button class="next-step" onclick="window.location.href = '/study/lesson8';">Следующее слово »</button>
+        </div>
+    </div>
+</section>
+</body>
+<script th:src="@{/resources/js/jquery-3.6.0.min.js}"></script>
+<script>
+    let id = $('#id').val();
+
+    $('.sound').click(function () {
+        let url = $('#music').val();
+        new Audio(url).play(); return false;
+    });
+
+    $('.select-word').click(function () {
+        let select = $(this).text();
+        let answer = $('#answer').val();
+        if (select === answer) {
+            $(this).addClass("ok")
+        } else {
+            $(this).addClass("error")
+            $.post('/study/setError', {id: id});
+        }
+    });
+
+</script>
+</html>

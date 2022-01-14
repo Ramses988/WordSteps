@@ -23,6 +23,7 @@ public class Word {
     private String word;
     private String transcription;
     private String translate;
+    private String sound;
     private int status;
 
     @Column(name="next_date")

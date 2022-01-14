@@ -18,6 +18,8 @@ public interface StudyService {
 
     Word GetWordLesson4();
 
+    Word GetWordLesson8();
+
     List<Word> GetListForLesson();
 
     Word getWordById(Long id);

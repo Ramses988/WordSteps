@@ -14,6 +14,7 @@ CREATE TABLE words
     word                VARCHAR           NOT NULL,
     transcription       VARCHAR           NOT NULL,
     translate           VARCHAR           NOT NULL,
+    sound               VARCHAR           NULL,
     status              INTEGER           NOT NULL,
     next_date           TIMESTAMP         NULL,
     dictionary_id       INTEGER           NOT NULL,

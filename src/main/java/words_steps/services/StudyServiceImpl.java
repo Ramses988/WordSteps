@@ -11,12 +11,13 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 @AllArgsConstructor
 @Service
 public class StudyServiceImpl implements StudyService {
 
-    private final List<Word> currentWords = new ArrayList<>();
+    private final CopyOnWriteArrayList<Word> currentWords = new CopyOnWriteArrayList<>();
     private final List<Word> tempCurrentWords = new ArrayList<>();
     private final WordRepository wordRepository;
 
@@ -49,6 +50,11 @@ public class StudyServiceImpl implements StudyService {
 
     @Override
     public Word GetWordLesson3() {
+        return getRandomWord();
+    }
+
+    @Override
+    public Word GetWordLesson8() {
         return getRandomWord();
     }
 
@@ -138,11 +144,11 @@ public class StudyServiceImpl implements StudyService {
 
     private void getCurrentWords(List<Word> words) {
         currentWords.clear();
-        for (int i = 0; i <= words.size(); i++) {
+        for (int i = 0; i < words.size(); i++) {
             int word = new SecureRandom().nextInt(words.size()) + 1;
             currentWords.add(words.get(word-1));
             words.remove(word-1);
-            if (i == 6)
+            if (i == 7)
                 return;
         }
         tempCurrentWords.clear();

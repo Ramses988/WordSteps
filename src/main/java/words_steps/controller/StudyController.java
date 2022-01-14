@@ -83,6 +83,17 @@ public class StudyController {
             model.addAttribute("word", word);
             return "lesson7";
         }
+        return "redirect:/study/lesson8";
+    }
+
+    @GetMapping("/study/lesson8")
+    public String getLesson8(Model model) {
+        Word word = service.GetWordLesson3();
+        if (Objects.nonNull(word)) {
+            model.addAttribute("word", word);
+            model.addAttribute("words", service.GetListForLesson());
+            return "lesson8";
+        }
         service.saveResult();
         return "redirect:/";
     }
