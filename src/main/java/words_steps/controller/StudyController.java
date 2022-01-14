@@ -32,4 +32,28 @@ public class StudyController {
         return "redirect:/study/lesson2";
     }
 
+    @GetMapping("/study/forgot/{id}")
+    public String setForgot(@PathVariable("id") Long id, Model model) {
+        service.setForgot(id);
+        return "redirect:/study/lesson2";
+    }
+
+
+
+    @GetMapping("/study/lesson2")
+    public String getLesson2(Model model) {
+        Word word = service.GetWordLesson2();
+        if (Objects.nonNull(word)) {
+            model.addAttribute("word", word);
+            return "lesson2";
+        }
+        return "redirect:/study/lesson3";
+    }
+
+    @GetMapping("/study/check-word/{id}")
+    public String checkWord(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("word", service.getWordById(id));
+        return "check";
+    }
+
 }

@@ -8,7 +8,7 @@
 <body>
 <section>
     <div id="container">
-        <div id="first">
+        <div id="first" class="top-margin">
                 <p class="center" th:text="${word.word}"></p>
                 <p class="transcription" th:text="${word.transcription}"></p>
         </div>
@@ -16,7 +16,7 @@
             <p class="translate" th:text="${word.translate}"></p>
         </div>
         <div id="button-block">
-            <button class="next-step" onclick="window.location.href = '/study/lesson1';">следующее слово »</button>
+            <button class="next-step" onclick="window.location.href = '/study/lesson1';">Следующее слово »</button>
         </div>
     </div>
 </section>

@@ -8,4 +8,10 @@ public interface StudyService {
 
     Word GetWordLesson1();
 
+    Word GetWordLesson2();
+
+    Word getWordById(Long id);
+
+    void setForgot(Long id);
+
 }

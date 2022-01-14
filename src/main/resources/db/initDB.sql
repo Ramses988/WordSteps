@@ -19,3 +19,4 @@ CREATE TABLE words
     dictionary_id       INTEGER           NOT NULL,
     FOREIGN KEY (dictionary_id) REFERENCES dictionaries_words (id)
 );
+CREATE UNIQUE INDEX words_unique_word_idx ON words (word);

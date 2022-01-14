@@ -33,4 +33,7 @@ public class Word {
     @JoinColumn(name = "dictionary_id", nullable = false)
     private DictionaryWords dictionary;
 
+    @Transient
+    private int errors;
+
 }

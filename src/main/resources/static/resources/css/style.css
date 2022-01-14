@@ -4,12 +4,41 @@
 }
 
 #first {
-    margin-top: 150px;
+    margin-top: 15px;
     width: 100%;
     height: 150px;
     background: #e9f6fe;
     border-radius: 8px;
     border: 1px solid #bedef2;
+}
+
+.top-margin {
+    margin-top: 150px !important;
+}
+
+#first-yellow {
+    margin-top: 150px;
+    width: 100%;
+    height: 150px;
+    background: #ffffe0;
+    border-radius: 8px;
+    border: 1px solid #D7D7B8;
+}
+
+#noBtn {
+    margin-top: 10px;
+    padding: 7px;
+    background: #fffae0;
+    border-radius: 3px;
+    border: 1px solid #9f8761;
+    cursor: pointer;
+}
+
+#yesBtn {
+    background: #e0fac0;
+    padding: 7px;
+    border-radius: 3px;
+    border: 1px solid #65915b;
 }
 
 #button-block {
@@ -57,4 +86,13 @@
     background: #ffffe0;
     border-radius: 8px;
     border: 1px solid #D7D7B8;
+}
+
+#second-white {
+    margin-top: 15px;
+    width: 100%;
+    height: 100px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #000;
 }

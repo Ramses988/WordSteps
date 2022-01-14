@@ -31,7 +31,33 @@ public class StudyServiceImpl implements StudyService {
             tempCurrentWords.remove(0);
             return word;
         }
+        tempCurrentWords.addAll(currentWords);
         return null;
+    }
+
+    @Override
+    public Word GetWordLesson2() {
+        if (tempCurrentWords.size() > 0) {
+            int i = new SecureRandom().nextInt(tempCurrentWords.size()) + 1;
+            Word word = tempCurrentWords.get(i-1);
+            tempCurrentWords.remove(i-1);
+            return word;
+        }
+        tempCurrentWords.addAll(currentWords);
+        return null;
+    }
+
+    @Override
+    public void setForgot(Long id) {
+        for (Word word : currentWords) {
+            if (id.equals(word.getId()))
+                word.setErrors(word.getErrors() + 1);
+        }
+    }
+
+    @Override
+    public Word getWordById(Long id) {
+        return wordRepository.findById(id).orElse(null);
     }
 
     private void getCurrentWords(List<Word> words) {
