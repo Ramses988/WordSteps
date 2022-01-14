@@ -22,6 +22,12 @@ public class StudyController {
         return "redirect:/study/lesson1";
     }
 
+    @GetMapping("/repeat/{id}")
+    public String getRepeat(@PathVariable("id") Long id) {
+        service.getWordsForRepeat(1L);
+        return "redirect:/study/lesson1";
+    }
+
     @GetMapping("/study/lesson1")
     public String getLesson1(Model model) {
         Word word = service.GetWordLesson1();
@@ -77,7 +83,8 @@ public class StudyController {
             model.addAttribute("word", word);
             return "lesson7";
         }
-        return "redirect:/study/lesson8";
+        service.saveResult();
+        return "redirect:/";
     }
 
     @GetMapping("/study/lesson2")

@@ -8,6 +8,8 @@ public interface StudyService {
 
     void getWordsForStudy(Long id);
 
+    void getWordsForRepeat(Long id);
+
     Word GetWordLesson1();
 
     Word GetWordLesson2();
@@ -21,5 +23,9 @@ public interface StudyService {
     Word getWordById(Long id);
 
     void setForgot(Long id);
+
+    void saveResult();
+
+    int getCountWordsRepeat();
 
 }

@@ -40,18 +40,24 @@
                             return '0%';
                         }
                         if (row['status'] === 1) {
-                            return '20%';
+                            return '15%';
                         }
                         if (row['status'] === 2) {
-                            return '40%';
+                            return '30%';
                         }
                         if (row['status'] === 3) {
-                            return '60%';
+                            return '45%';
                         }
                         if (row['status'] === 4) {
-                            return '80%';
+                            return '55%';
                         }
                         if (row['status'] === 5) {
+                            return '70%';
+                        }
+                        if (row['status'] === 8) {
+                            return '85%';
+                        }
+                        if (row['status'] > 7) {
                             return '100%';
                         }
                     }

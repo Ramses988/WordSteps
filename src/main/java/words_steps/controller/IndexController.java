@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import words_steps.models.DictionaryWords;
 import words_steps.services.DictionaryService;
+import words_steps.services.StudyService;
 
 import java.util.List;
 
@@ -15,10 +16,12 @@ import java.util.List;
 public class IndexController {
 
     private final DictionaryService service;
+    private final StudyService studyService;
 
     @GetMapping("/")
     public String getIndex(Model model) {
         model.addAttribute("dictionaries", service.getDictionaries());
+        model.addAttribute("wordsCountRepeat", studyService.getCountWordsRepeat());
         return "index";
     }
 

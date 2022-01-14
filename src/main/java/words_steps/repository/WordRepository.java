@@ -10,4 +10,6 @@ public interface WordRepository extends JpaRepository<Word, Long> {
 
     List<Word> findAllByNextDate(LocalDateTime nextDate);
 
+    List<Word> findAllByNextDateLessThan(LocalDateTime nextDate);
+
 }
