@@ -12,8 +12,10 @@
         <table id="myTable" class="display">
             <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Слово</th>
+                    <th>Транскрипция</th>
+                    <th>Перевод</th>
+                    <th>Статус</th>
                 </tr>
             </thead>
         </table>
@@ -29,8 +31,31 @@
         $('#myTable').DataTable({
             "paging": true,
             columns: [
-                { data: 'id' },
-                { data: 'name' }
+                { data: 'word' },
+                { data: 'transcription' },
+                { data: 'translate' },
+                {
+                    render: function (data, type, row, meta) {
+                        if (row['status'] === 0) {
+                            return '0%';
+                        }
+                        if (row['status'] === 1) {
+                            return '20%';
+                        }
+                        if (row['status'] === 2) {
+                            return '40%';
+                        }
+                        if (row['status'] === 3) {
+                            return '60%';
+                        }
+                        if (row['status'] === 4) {
+                            return '80%';
+                        }
+                        if (row['status'] === 5) {
+                            return '100%';
+                        }
+                    }
+                }
             ],
             ajax: {
                 url: '/dictionary/get-words',

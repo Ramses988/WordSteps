@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Урок</title>
+    <link rel="stylesheet" th:href="@{/resources/css/style.css}">
+</head>
+<body>
+<section>
+    <div id="container">
+        <div id="first">
+                <p class="center" th:text="${word.word}"></p>
+                <p class="transcription" th:text="${word.transcription}"></p>
+        </div>
+        <div id="second">
+            <p class="translate" th:text="${word.translate}"></p>
+        </div>
+        <div id="button-block">
+            <button class="next-step" onclick="window.location.href = '/study/lesson1';">следующее слово »</button>
+        </div>
+    </div>
+</section>
+</body>
+</html>

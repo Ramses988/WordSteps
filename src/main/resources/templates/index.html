@@ -8,6 +8,7 @@
     <h1>Список словарей</h1>
     <div th:each="dictionary : ${dictionaries}">
         <p><a th:href="@{'/dictionary/' + ${dictionary.id}}" th:text="${dictionary.name}"></a></p>
+        <p><a th:href="@{'/study/' + ${dictionary.id}}">Учить слова</a></p>
     </div>
 </body>
 </html>
