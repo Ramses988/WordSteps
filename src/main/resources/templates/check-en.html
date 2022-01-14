@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Урок</title>
+    <link rel="stylesheet" th:href="@{/resources/css/style.css}">
+</head>
+<body>
+<section>
+    <div id="container">
+        <div id="first" class="top-margin">
+            <p class="center" th:text="${word.word}"></p>
+            <p class="transcription" th:text="${word.transcription}"></p>
+        </div>
+        <div id="second">
+            <p class="translate" th:text="${word.translate}"></p>
+        </div>
+        <input type="hidden" id="id" th:value="${word.id}">
+        <div id="button-block">
+            <button id="noBtn">Неверно</button>
+            <button class="next-step" id="yesBtn">Верно</button>
+        </div>
+    </div>
+</section>
+</body>
+<script th:src="@{/resources/js/jquery-3.6.0.min.js}"></script>
+<script>
+    let url = '/study/forgot/' + $('#id').val();
+
+    $('#yesBtn').click(function () {
+        window.location.replace('/study/lesson5');
+    });
+
+    $('#noBtn').click(function () {
+        window.location.replace(url);
+    });
+
+</script>
+</html>

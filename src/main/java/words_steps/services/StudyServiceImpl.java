@@ -37,6 +37,26 @@ public class StudyServiceImpl implements StudyService {
 
     @Override
     public Word GetWordLesson2() {
+        return getRandomWord();
+    }
+
+    @Override
+    public Word GetWordLesson3() {
+        return getRandomWord();
+    }
+
+    @Override
+    public Word GetWordLesson4() {
+        return getRandomWord();
+    }
+
+    @Override
+    public List<Word> GetListForLesson() {
+        Collections.shuffle(currentWords);
+        return currentWords;
+    }
+
+    private Word getRandomWord() {
         if (tempCurrentWords.size() > 0) {
             int i = new SecureRandom().nextInt(tempCurrentWords.size()) + 1;
             Word word = tempCurrentWords.get(i-1);

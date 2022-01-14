@@ -12,8 +12,49 @@
     border: 1px solid #bedef2;
 }
 
+#first-1 {
+    margin-top: 15px;
+    width: 100%;
+    background: #e9f6fe;
+    border-radius: 8px;
+    border: 1px solid #bedef2;
+}
+
+
 .top-margin {
     margin-top: 150px !important;
+}
+
+.error {
+    background: #ffe7d0 !important;
+    border: 1px solid #cec1ad !important;
+}
+
+.ok {
+    background: #c6e3a2 !important;
+    border: 1px solid #b6cf9c !important;
+}
+
+.select-word {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    background: #e9f6fe;
+    border-radius: 3px;
+    border: 1px solid #bedef2;
+}
+
+#answer {
+    font-size: 17px;
+}
+
+#ok {
+    color: green;
+}
+
+#error {
+    color: red;
 }
 
 #first-yellow {
@@ -23,6 +64,16 @@
     background: #ffffe0;
     border-radius: 8px;
     border: 1px solid #D7D7B8;
+}
+
+#checkBtn {
+    margin-right: 5px;
+}
+
+#response {
+    width: 850px;
+    font-size: 16px;
+    margin: 30px;
 }
 
 #noBtn {

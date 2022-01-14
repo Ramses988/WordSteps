@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Урок</title>
+    <link rel="stylesheet" th:href="@{/resources/css/style.css}">
+</head>
+<body>
+<section>
+    <div id="container">
+        <div id="first-yellow">
+            <p class="center" th:text="${word.translate}"></p>
+            <input type="hidden" id="word" th:value="${word.word}">
+            <input type="hidden" id="transcription" th:value="${word.transcription}">
+            <input type="hidden" id="id" th:value="${word.id}">
+        </div>
+        <div id="first-1">
+            <p id="answer"></p>
+            <p><input type="text" id="response" placeholder="Введите слово на английском"></p>
+        </div>
+        <div id="button-block">
+            <button class="next-step" onclick="window.location.href = '/study/lesson4';">Следующее слово »</button>
+            <button class="next-step" id="checkBtn">Проверить</button>
+        </div>
+    </div>
+</section>
+</body>
+<script th:src="@{/resources/js/jquery-3.6.0.min.js}"></script>
+<script>
+    let id = $('#id').val();
+
+    $('#checkBtn').click(function () {
+        let select = $('#response').val();
+        let answer = $('#word').val();
+        if (select === answer) {
+            $('#answer').append('<span id="ok">Верно </span><b>' + answer + '</b> ' + $('#transcription').val());
+        } else {
+            $('#answer').append('<span id="error">Неверно </span><b>' + answer + '</b> ' + $('#transcription').val());
+            $.post('/study/setError', {id: id});
+        }
+    });
+
+</script>
+</html>

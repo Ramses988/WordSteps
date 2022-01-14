@@ -38,7 +38,47 @@ public class StudyController {
         return "redirect:/study/lesson2";
     }
 
+    @GetMapping("/study/lesson3")
+    public String getLesson3(Model model) {
+        Word word = service.GetWordLesson3();
+        if (Objects.nonNull(word)) {
+            model.addAttribute("word", word);
+            model.addAttribute("words", service.GetListForLesson());
+            return "lesson3";
+        }
+        return "redirect:/study/lesson4";
+    }
 
+    @GetMapping("/study/lesson6")
+    public String getLesson6(Model model) {
+        Word word = service.GetWordLesson3();
+        if (Objects.nonNull(word)) {
+            model.addAttribute("word", word);
+            model.addAttribute("words", service.GetListForLesson());
+            return "lesson6";
+        }
+        return "redirect:/study/lesson7";
+    }
+
+    @GetMapping("/study/lesson4")
+    public String getLesson4(Model model) {
+        Word word = service.GetWordLesson4();
+        if (Objects.nonNull(word)) {
+            model.addAttribute("word", word);
+            return "lesson4";
+        }
+        return "redirect:/study/lesson5";
+    }
+
+    @GetMapping("/study/lesson7")
+    public String getLesson7(Model model) {
+        Word word = service.GetWordLesson4();
+        if (Objects.nonNull(word)) {
+            model.addAttribute("word", word);
+            return "lesson7";
+        }
+        return "redirect:/study/lesson8";
+    }
 
     @GetMapping("/study/lesson2")
     public String getLesson2(Model model) {
@@ -50,10 +90,26 @@ public class StudyController {
         return "redirect:/study/lesson3";
     }
 
+    @GetMapping("/study/lesson5")
+    public String getLesson5(Model model) {
+        Word word = service.GetWordLesson2();
+        if (Objects.nonNull(word)) {
+            model.addAttribute("word", word);
+            return "lesson5";
+        }
+        return "redirect:/study/lesson6";
+    }
+
     @GetMapping("/study/check-word/{id}")
     public String checkWord(@PathVariable("id") Long id, Model model) {
         model.addAttribute("word", service.getWordById(id));
         return "check";
+    }
+
+    @GetMapping("/study/check-word-en/{id}")
+    public String checkWordEn(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("word", service.getWordById(id));
+        return "check-en";
     }
 
 }
