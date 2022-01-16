@@ -24,6 +24,8 @@ public class Word {
     private String transcription;
     private String translate;
     private String sound;
+    private String description;
+    private String example;
     private int status;
 
     @Column(name="next_date")

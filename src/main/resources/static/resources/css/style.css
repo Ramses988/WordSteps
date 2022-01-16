@@ -20,6 +20,13 @@
     border: 1px solid #bedef2;
 }
 
+#description {
+    margin-top: 45px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid dodgerblue;
+}
+
 
 .top-margin {
     margin-top: 150px !important;

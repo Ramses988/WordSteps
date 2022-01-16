@@ -12,7 +12,8 @@
                 <p class="center" th:text="${word.word}"></p>
                 <p class="transcription" th:text="${word.transcription}"></p>
             <span class="sound">
-            <img id="speak" src="/resources/images/speak.png" /></span>
+            <img id="speak" src="/resources/images/speak.png" />
+            </span>
             <input type="hidden" id="music" th:value="${word.sound}">
         </div>
         <div id="second">
@@ -20,6 +21,10 @@
         </div>
         <div id="button-block">
             <button class="next-step" onclick="window.location.href = '/study/lesson1';">Следующее слово »</button>
+        </div>
+        <div id="description">
+            <p th:text="${word.example}"></p>
+            <p th:text="${word.description}"></p>
         </div>
     </div>
 </section>
