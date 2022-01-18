@@ -149,7 +149,7 @@ public class StudyServiceImpl implements StudyService {
             int word = new SecureRandom().nextInt(words.size()) + 1;
             currentWords.add(words.get(word-1));
             words.remove(word-1);
-            if (i == 6)
+            if (i == 4)
                 return;
         }
     }
