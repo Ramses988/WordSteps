@@ -16,7 +16,7 @@
         </div>
         <div id="first-1">
             <p id="answer"></p>
-            <p><input type="text" id="response" placeholder="Введите слово на русскои"></p>
+            <p><input type="text" id="response" placeholder="Введите слово на русском"></p>
         </div>
         <div id="button-block">
             <button class="next-step" onclick="window.location.href = '/study/lesson7';">Следующее слово »</button>
@@ -32,7 +32,7 @@
     $('#checkBtn').click(function () {
         let select = $('#response').val();
         let answer = $('#word').val();
-        if (select === answer) {
+        if (answer.includes(select)) {
             $('#answer').append('<span id="ok">Верно </span><b>' + answer + '</b> ' + $('#transcription').val());
         } else {
             $('#answer').append('<span id="error">Неверно </span><b>' + answer + '</b> ' + $('#transcription').val());

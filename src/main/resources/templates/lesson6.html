@@ -11,6 +11,10 @@
         <div id="first-yellow">
             <p class="center" th:text="${word.word}"></p>
             <input type="hidden" id="answer" th:value="${word.translate}">
+            <span class="sound">
+            <img id="speak" src="/resources/images/speak.png" />
+            </span>
+            <input type="hidden" id="music" th:value="${word.sound}">
             <input type="hidden" id="id" th:value="${word.id}">
         </div>
         <div>
@@ -37,6 +41,11 @@
             $(this).addClass("error")
             $.post('/study/setError', {id: id});
         }
+    });
+
+    $('.sound').click(function () {
+        let url = $('#music').val();
+        new Audio(url).play(); return false;
     });
 
 </script>
