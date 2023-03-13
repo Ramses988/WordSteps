@@ -30,4 +30,6 @@ public interface StudyService {
 
     int getCountWordsRepeat();
 
+    int getWordsNew();
+
 }

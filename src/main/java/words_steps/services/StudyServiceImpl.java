@@ -126,6 +126,11 @@ public class StudyServiceImpl implements StudyService {
         return getWordsRepeat().size();
     }
 
+    @Override
+    public int getWordsNew() {
+        return wordRepository.findAllByNextDate(null).size();
+    }
+
     private List<Word> getWordsRepeat() {
         return wordRepository.findAllByNextDateLessThan(LocalDateTime.now());
     }
@@ -145,6 +150,11 @@ public class StudyServiceImpl implements StudyService {
 
     private void getCurrentWords(List<Word> words) {
         currentWords.clear();
+        if (words.size() == 5) {
+            currentWords.addAll(words);
+            return;
+        }
+
         for (int i = 0; i < words.size(); i++) {
             int word = new SecureRandom().nextInt(words.size()) + 1;
             currentWords.add(words.get(word-1));

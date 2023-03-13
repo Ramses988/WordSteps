@@ -22,6 +22,7 @@ public class IndexController {
     public String getIndex(Model model) {
         model.addAttribute("dictionaries", service.getDictionaries());
         model.addAttribute("wordsCountRepeat", studyService.getCountWordsRepeat());
+        model.addAttribute("wordsNew", studyService.getWordsNew());
         return "index";
     }
 
